@@ -1,13 +1,215 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+p {
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 2em;
+}
+.word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+  height: 200px;
+  color: red;
+  font-size: 3em;
+  font-weight: bolder;
+  font-family: monospace;
+  padding: 1em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* muñeco*/
+
+.hangman {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 300px;
 }
+
+.gallows {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+.horizontal {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 160px;
+  height: 10px;
+  background-color: #8B4513;
+}
+
+.vertical {
+  position: absolute;
+  top: 10px;
+  left: 140px;
+  width: 10px;
+  height: 280px;
+  background-color: #8B4513;
+}
+
+.diagonal {
+  position: absolute;
+  top: 55px;
+  left: 10px;
+  width: 140px;
+  height: 50px;
+  border-right: 10px solid #8B4513;
+  transform: rotate(-45deg);
+}
+
+.rope {
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  width: 5px;
+  height: 30px;
+  background-color: #000;
+}
+
+.head {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #000000;
+  border-radius: 50%;
+}
+
+.body {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  width: 10px;
+  height: 100px;
+  background-color: #000000;
+}
+
+.left-arm,
+.right-arm {
+  position: absolute;
+  top: 90px;
+  width: 10px;
+  height: 45px;
+  background-color: #000000;
+}
+
+.left-arm {
+  left: 27px;
+  transform: rotate(45deg);
+}
+
+.right-arm {
+  right: 140px;
+  transform: rotate(-45deg);
+}
+
+.left-leg,
+.right-leg {
+  position: absolute;
+  top: 150px;
+  width: 10px;
+  height: 50px;
+  background-color: #000000;
+}
+
+.left-leg {
+  left: 22px;
+  transform: rotate(45deg);
+}
+
+.right-leg {
+  left: 57px;
+  transform: rotate(-45deg);
+}
+
+/*
+.hangman {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 50px;
+}
+
+.hangman .pole {
+  width: 10px;
+  height: 200px;
+  background-color: brown;
+  position: relative;
+  margin-right: 20px;
+}
+.hangman .stick {
+  width: 150px;
+  height: 10px;
+  background-color: black;
+  position: relative;
+  top: 0;
+  left: -45px;
+}
+
+.hangman .noose {
+  width: 150px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: -45px;
+}
+
+.hangman .head {
+  width: 50px;
+  height: 50px;
+  background-color: #ffcc99;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: -25px;
+}
+
+.hangman .body {
+  width: 10px;
+  height: 100px;
+  background-color: #ffcc99;
+  position: absolute;
+  top: 70px;
+  left: -5px;
+}
+
+.hangman .arm {
+  width: 70px;
+  height: 10px;
+  background-color: #ffcc99;
+  position: absolute;
+  top: 80px;
+  left: -75px;
+  transform-origin: top right;
+  transform: rotate(45deg);
+}
+
+.hangman .arm.left {
+  top: 80px;
+  left: -5px;
+  transform-origin: top left;
+  transform: rotate(-45deg);
+}
+
+.hangman .leg {
+  width: 70px;
+  height: 10px;
+  background-color: #ffcc99;
+  position: absolute;
+  top: 140px;
+  left: -5px;
+  transform-origin: top right;
+  transform: rotate(45deg);
+}
+
+.hangman .leg.left {
+  top: 140px;
+  left: -75px;
+  transform-origin: top left;
+  transform: rotate(-45deg);
+}
+*/
