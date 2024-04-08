@@ -34,8 +34,8 @@ const Img = ({ intentos }) => {
           partesAhorcado.push(<div className="left-leg" key={i}></div>);
           break;
         case 9:
-            partesAhorcado.push(<div className="right-leg" key={i}></div>);
-            break;
+          partesAhorcado.push(<div className="right-leg" key={i}></div>);
+          break;
         default:
           break;
       }

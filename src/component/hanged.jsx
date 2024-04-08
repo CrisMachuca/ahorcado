@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Word from "./word.jsx";
-import Letters from "./letters.jsx";
 import Img from "./img.jsx";
 import '../index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Hanged = () => {
-    let diccionario = ["fruta", "coche", "pez", "tortuga", "guacamole", "sol", "pan", "mesa", "casa", "flor", "agua", "perro", "gato", "plato", "arbol", "lapiz", "silla", "nieve", "hoja", "mano", "papel", "piedra", "cafe", "bomba", "rata", "tigre", "girasol", "libro", "martillo", "comida", "puerta", "fuego", "familia", "ventana", "estrella", "guitarra", "teclado", "cuchillo", "calcetin", "computadora", "pantalones", "elefante", "leopardo", "cocodrilo", "hamburguesa", "heladera", "television", "reloj", "lampara", "telefono", "unicornio", "mariposa", "pajarito"];
+    let diccionario = ["fruta", "coche", "pez", "tortuga", "guacamole", "perro","perro", "gato", "tigre", "piano", "mesa", "silla", "lápiz", "llave", "botón", "zapato", "hoja", "arroz", "avión", "cable", "luz", "luna", "mango", "manzana", "pelota", "techo", "fuego", "flor", "rana", "huevo", "globo", "palma", "piña", "rana", "vela", "viento", "vapor", "papel", "parra", "torta", "trono", "cabra", "gacela", "grulla", "iguana", "jirafa", "koala", "león", "murciélago", "nutria", "ocelote", "oso", "pantera", "quokka", "renacuajo"];
     const [palabra, setPalabra] = useState(randomWord());
     const [letras, setLetras] = useState([]);
     const [intentos, setIntentos] = useState(0);
@@ -21,7 +20,7 @@ const Hanged = () => {
             setIntentos(0);
             alert("¡Has ganado!");
             setHasGanado(false);
-        } else if (intentos >= 10) {
+        } else if (intentos >= 11) {
             alert("¡Has perdido!");
             reiniciarJuego();
         }
@@ -38,6 +37,7 @@ const Hanged = () => {
             if (!palabra.includes(letra)) {
                 setIntentos(intentos + 1);
                 setMensaje(`La letra ${letra.toUpperCase()} no está en la palabra.`);
+                
             } else {
                 const count = (palabra.match(new RegExp(letra, "g")) || []).length;
                 setMensaje(`La letra ${letra.toUpperCase()} aparece ${count} ${count === 1 ? 'vez' : 'veces'} en la palabra.`);}
@@ -57,6 +57,11 @@ const Hanged = () => {
             .join(" ");
     }
 
+    function changeColor(button) {
+        
+        button.classList.add('clicked'); 
+      }
+
     function reiniciarJuego() {
         const nuevaPalabra = randomWord();
         setPalabra(nuevaPalabra);
@@ -66,27 +71,40 @@ const Hanged = () => {
 
     return (
         <>
-            <h1 className="text-center p-3">AHORCADO</h1>
-            <div className="container main">
-                <div className="img">
-                    <Img intentos={intentos} />
-                </div>
-                <div className="game">
-                    <div className="container">
-                        <div className="letter">
-                            {Array.from("abcdefghijklmnopqrstuvwxyz").map((letra, index) => (
-                                <button key={index} onClick={() => handleComprobarLetra(letra)}>{letra.toUpperCase()}</button>
-                            ))}
-                        </div>
+            <div className="title">
+                <h1 className="text-center p-3" style={{fontFamily:'Permanent Marker', animation: "neonefecto 1s infinite"}}>AHORCADO</h1>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-5 col-12">
+                    <div className="img">
+                        <Img intentos={intentos} />
                     </div>
-                    <div className="container word">
+                    
+                </div>
+    
+                <div class="col-lg-7 col-12">
+                    <div className="word">
                         <Word palabra={mostrarPalabra()} />
-                    </div>
-                    <div className="message">
-                        <h2>{mensaje}</h2>
-                        <Letters letras={letras} />
-                    </div>
+                    </div>  
                 </div>
+            </div>
+
+            <div className="container main">
+                
+                <div className="message">
+                    <h2>{mensaje}</h2>
+                    
+                </div>
+                 
+                <div className="letter">
+                    {Array.from("abcdefghijklmnopqrstuvwxyz").map((letra, index) => (
+                                <button key={index} onClick={(event) => { handleComprobarLetra(letra); changeColor(event.target); }}>
+                                {letra.toUpperCase()}
+                              </button>
+                    ))}
+                </div>
+
             </div>
         </>
     )
