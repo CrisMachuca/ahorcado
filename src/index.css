@@ -96,6 +96,12 @@ input:checked + .slider:before {
   color: #fff; 
 }
 
+/* OWNER */
+
+.owner {
+  color: #ff07ff;
+}
+
 /* TITLE */
 
 .text-center {

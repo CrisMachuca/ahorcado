@@ -66,19 +66,22 @@ const Hanged = () => {
 
     return (
         <>
-            <div className="container">
-                <DarkModeToggle />
-            </div>
+            <div className="container d-flex">
+                <div className="container">
+                    <DarkModeToggle />
+                </div>
+                <div className="owner"><h5>Designed by Cris Machuca</h5></div>
+                </div>
             <div className="title">
                 <h1 className="text-center p-3">AHORCADO</h1>
             </div>
             <div className="row d-flex justify-content-center">
-                <div className="col-lg-5 col-12">
+                <div className="col-md-5 col-12">
                     <div className="img">
                         <Img intentos={intentos} />
                     </div>
                 </div>
-                <div className="col-lg-7 col-12">
+                <div className="col-md-7 col-12">
                     <div className="word">
                         <Word palabra={mostrarPalabra()} />
                     </div>
