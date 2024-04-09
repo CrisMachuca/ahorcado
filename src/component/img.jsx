@@ -2,7 +2,7 @@ import React from "react";
 
 
 const Img = ({ intentos }) => {
-    // Determinar qué partes del ahorcado mostrar basadas en el número de intentos
+    // partes del ahorcado mostrar según el número de intentos
     const partesAhorcado = [];
     for (let i = 0; i < intentos; i++) {
       switch (i) {
