@@ -11,6 +11,7 @@ const Hanged = () => {
     const [intentos, setIntentos] = useState(0);
     const [hasGanado, setHasGanado] = useState(false);
     const [mensaje, setMensaje] = useState("");
+    
 
     useEffect(() => {
         if (hasGanado) {
@@ -20,11 +21,17 @@ const Hanged = () => {
             setIntentos(0);
             alert("¡Has ganado!");
             setHasGanado(false);
-        } else if (intentos >= 11) {
+        } else if (intentos >= 10) {
             alert("¡Has perdido!");
             reiniciarJuego();
         }
     }, [hasGanado, intentos]);
+
+    useEffect(() => {
+        if (!mostrarPalabra().includes("_")) {
+            setHasGanado(true);
+        }
+    }, [letras, palabra]);
 
     function randomWord() {
         let randomIndex = Math.floor(Math.random() * diccionario.length);
@@ -72,7 +79,7 @@ const Hanged = () => {
     return (
         <>
             <div className="title">
-                <h1 className="text-center p-3" style={{fontFamily:'Permanent Marker', animation: "neonefecto 1s infinite"}}>AHORCADO</h1>
+                <h1 className="text-center p-3" style={{fontFamily:'Permanent Marker', fontSize: "3rem",textShadow: "0 0 10px #00ff00, 0 0 10px #00ff00, 0 0 10px #00ff00"}}>AHORCADO</h1>
             </div>
 
             <div class="row d-flex justify-content-center">
@@ -89,7 +96,9 @@ const Hanged = () => {
                     </div>  
                 </div>
             </div>
-
+            
+            
+            
             <div className="container main">
                 
                 <div className="message">
@@ -111,5 +120,3 @@ const Hanged = () => {
 }
 
 export default Hanged;
-
-

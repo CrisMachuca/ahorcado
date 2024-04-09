@@ -17,6 +17,7 @@
 .word {
   max-width:600px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   background-color: #ffa;
@@ -32,11 +33,27 @@
   margin: 1em;
 }
 
-@keyframes neonefecto {
-  50% {
-      text-shadow: 0 0 10px #00ff00, 0 0 10px #00ff00, 0 0 10px #00ff00;
+@media (max-width: 375px) {
+  .word {
+    max-width: 360px; 
+    font-size: 1rem;
   }
 }
+
+@media (min-width: 376px) and (max-width: 767px) {
+  .word {
+    min-width: 360px;
+    max-width: 600px; 
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .word {
+    max-width: 360px;
+  }
+}
+
 
 h2 {
   padding: 1em;
@@ -58,22 +75,19 @@ p {
 }
 
 .letter {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  justify-content: center;
-  gap: 3px;
+  
   text-align: center;
-  font-size: 1.5em;;
+  font-size: 3rem;
   padding: 1em; 
   border-radius: 10px;
   border: 3px solid black;
   font-family: "Permanent Marker", cursive;
-  box-shadow: 0 0 20px #4f9;
+  box-shadow: 0 0 20px #00ff00;
   margin-bottom: 1em;
 }
 
 button {
-  
+  font-size: 3rem;
   appearance: none;
   border:none;
   background-color: transparent;
@@ -87,11 +101,25 @@ button:hover {
   text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
 }
 button.clicked {
-  background-color: #00ff00;
-  border: 4px, solid, red; 
-  border-radius: 50%;
+  background-color: transparent; /* Fondo transparente */
+  border: 7px solid #d42c2688; /* Borde de 2px sólido con color verde */
+  border-radius: 50%; /* Borde circular */
 }
-/* muñeco*/
+
+
+@media (max-width: 375px) {
+  .letter, button {font-size: 1rem;}
+}
+
+@media (min-width: 376px) and (max-width: 767px) {
+  .letter, button {font-size: 2rem;}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .letter, button {font-size: 3rem;}
+}
+
+/* IMAGE*/
 
 .hangman {
   display: flex;
@@ -242,11 +270,24 @@ button.clicked {
 ul {
   display: flex;
   flex-wrap: wrap;
-  
   gap: 1em;
 }
 
 li {
   list-style: none;
   font-size: x-large;
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 1em;
+  text-align: center;
+  background-color: #000;
+  color: white;
+  border: 3px solid red;
+  border-radius: 10px;
+  
 }
