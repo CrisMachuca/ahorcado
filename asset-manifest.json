@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ahorcado/static/css/main.39031733.css",
+    "main.js": "/ahorcado/static/js/main.95edbc1c.js",
+    "static/media/dark1.jpg": "/ahorcado/static/media/dark1.48aa6269da6e4b9436e3.jpg",
+    "index.html": "/ahorcado/index.html",
+    "main.39031733.css.map": "/ahorcado/static/css/main.39031733.css.map",
+    "main.95edbc1c.js.map": "/ahorcado/static/js/main.95edbc1c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39031733.css",
+    "static/js/main.95edbc1c.js"
+  ]
+}
